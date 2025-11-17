@@ -1,165 +1,87 @@
-# **Break-Even Profit Analysis — Microeconomic Simulation in Python**
-
-A computational microeconomic engine that models how a competitive firm transitions from loss to profitability.  
-This project simulates economic profit dynamically across output levels, identifying the break-even quantity where π = 0 and profitability emerges.  
-Designed for economists, analysts, and students who want clean, reproducible, and theory-consistent results.
+# AC–MC Cost Convergence Simulation
 
 ---
 
-## 🚀 **Project Purpose**
+## 📌 Project Objectives
 
-This simulation is built to:
-
-- Compute economic profit (π) across increasing output levels Q.  
-- Identify the **break-even point (Qe)** through iterative evaluation.  
-- Provide a transparent and mathematically rigorous model of firm behavior under perfect competition.  
-- Serve as a ready-to-run tool for **teaching, research, or applied economic analysis**.
+- Model the dynamic behavior of **Average Cost (AC)** and **Marginal Cost (MC)**.  
+- Illustrate the convergence **AC → MC** as output expands.  
+- Provide a reproducible, input-driven script for academic or applied use.  
 
 ---
 
-## 📘 **Economic Foundations**
+## 🔍 Economic Background
 
-### **Profit Function (π)**  
+### Average Cost (AC)  
 ```math
-\pi(Q) = P \cdot Q - \big[CF + CV_u \cdot Q\big]
-Where:
-
-P → Unit price
-
-CF → Total fixed cost
-
-CVu → Unit variable cost
-
-Q → Output
-
-A firm in perfect competition faces a constant price and produces until losses vanish and profit begins to rise. This script reveals that transition step-by-step.
-
-🧮 How the Simulation Works
-The program:
-
-Requests key economic inputs:
-
-Unit price (P)
-
-Total fixed cost (CF)
-
-Unit variable cost (CVu)
-
-Iteratively increases output Q = 1, 2, 3 …
-
-Calculates for each Q:
-
-Total revenue: 
-𝑇
-𝑅
-=
-𝑃
-⋅
-𝑄
-TR=P⋅Q
-
-Total cost: 
-𝑇
+AC = \frac{FC + UVC \cdot Q}{Q}
+Marginal Cost (MC)
+𝑀
 𝐶
 =
-𝐶
-𝐹
-+
-𝐶
+𝑈
 𝑉
-𝑢
-⋅
-𝑄
-TC=CF+CV 
-u
-​
- ⋅Q
-
-Economic profit: 
-𝜋
-(
-𝑄
-)
-=
-𝑇
-𝑅
-−
-𝑇
 𝐶
-π(Q)=TR−TC
+MC=UVC
+As output (Q) increases, fixed costs are spread over more units, causing AC to approach MC. This script computes AC iteratively and reports when AC is sufficiently close to MC.
 
-Stops once:
+Note: If your GitHub preview does not render math blocks, the formulas remain readable as plain text.
 
-𝜋
-(
-𝑄
-)
-≥
-0
-π(Q)≥0
-Prints the exact break-even quantity (Qe) and the profit at Qe.
-
-📊 Sample Output
-text
+📂 File Structure
+bash
 Copiar código
-Q =   1 → Economic Profit (π) = -45.00
-Q =   2 → Economic Profit (π) = -15.00
-Q =   3 → Economic Profit (π) =   5.00
-
-🔹 Break-even reached.
-🔸 Break-even quantity (Qe): 3
-🔸 Profit at Qe: 5.00
+ac_mc_cost_convergence.py   # Main simulation script
+README.md                   # This document
+LICENSE                     # MIT License
+.gitignore                  # Python ignore rules
 ▶️ How to Run
-Ensure Python 3.8+ is installed.
+Install Python 3.8+.
 
-From the repository root run:
+From the repository root:
 
 bash
 Copiar código
-python break_even_profit_analysis.py
-Provide the requested parameters when prompted:
+python ac_mc_cost_convergence.py
+Enter inputs when prompted:
 
-Unit price (P)
+Total Fixed Cost (FC)
 
-Total fixed cost (CF)
+Unit Variable Cost (UVC)
 
-Unit variable cost (CVu)
+The script iterates up to 25 quantities and prints AC and MC for each Q; it stops early if AC ≈ MC (difference < 0.01).
 
-Review the stepwise profit evolution and the reported break-even quantity.
-
-🧠 Interpretation
-As output increases, the firm spreads fixed costs across more units, reducing initial losses. When cumulative revenue covers fixed and variable costs, the firm reaches break-even—the threshold between loss and positive economic profit.
-
-This model demonstrates:
-
-Cost dilution effects
-
-The profit transition point for a competitive firm
-
-Fundamental microeconomic dynamics in a computationally transparent way
-
-🛠️ Technologies & Design
-Python 3 (script style, no external dependencies)
-
-Simple, well-documented functions for profit computation
-
-Deterministic, input-driven iterative evaluation suitable for classroom demos or inclusion in larger toolkits
-
-📂 Recommended File Structure
-bash
+📊 Example Output
+markdown
 Copiar código
-/repo-root
-├─ src/
-│  └─ break_even_profit_analysis.py
-├─ data/           # (optional) sample parameter files or scenario configs
-├─ notebooks/      # (optional) Jupyter explainer notebooks and visualizations
-├─ README.md
-├─ .gitignore
-└─ LICENSE
+Q   |     AC      |     MC
+----------------------------------------------
+  1 |  55.0000    |  10.0000
+  2 |  32.5000    |  10.0000
+  3 |  25.0000    |  10.0000
+  4 |  21.2500    |  10.0000
+  ...
+🔹 AC has approached MC (difference < 0.01).
+🧠 Economic Interpretation
+Initial units bear a large share of fixed cost; thus AC > MC.
+
+As Q grows, AC declines toward MC because fixed cost is diluted.
+
+Under constant UVC, AC converges to MC — a fundamental result in microeconomics.
+
+🛠 Technical Notes & Extensions
+Tech: Python 3 (no external dependencies).
+Possible enhancements:
+
+Vectorized scenarios with numpy and CSV outputs.
+
+AC vs MC plot using matplotlib.
+
+Parameterized CLI or config-file mode for batch runs.
+
 📜 License
-This project is released under the MIT License — free to use, modify, and redistribute with attribution.
+This repository is released under the MIT License. See LICENSE for details.
 
 👤 Author
 Kevin Adolfo Lorenzo Condor
-Economist in Training | Applied Microeconomics & Python
+Economist in training — Applied Microeconomics & Python
 GitHub: KLorenzoEconomics
