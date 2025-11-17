@@ -1,56 +1,60 @@
 # AC–MC Cost Convergence Simulation
 
+A clean and compact Python simulation that demonstrates how **Average Cost (AC)** converges to **Marginal Cost (MC)** as output increases under constant unit variable costs. Ideal for academic use, applied economics, and portfolio projects.
+
 ---
 
 ## 📌 Project Objectives
 
-- Model the dynamic behavior of **Average Cost (AC)** and **Marginal Cost (MC)**.  
+- Model the behavior of **Average Cost** and **Marginal Cost** dynamically.  
 - Illustrate the convergence **AC → MC** as output expands.  
-- Provide a reproducible, input-driven script for academic or applied use.  
+- Provide a reproducible Python implementation for learning or applied research.
 
 ---
 
 ## 🔍 Economic Background
 
-### Average Cost (AC)  
-```math
-AC = \frac{FC + UVC \cdot Q}{Q}
-Marginal Cost (MC)
-𝑀
-𝐶
-=
-𝑈
-𝑉
-𝐶
-MC=UVC
-As output (Q) increases, fixed costs are spread over more units, causing AC to approach MC. This script computes AC iteratively and reports when AC is sufficiently close to MC.
+### **Average Cost (AC)**  
+AC = (Fixed Cost + Variable Cost per unit × Q) / Q  
+AC = (FC + UVC × Q) / Q  
 
-Note: If your GitHub preview does not render math blocks, the formulas remain readable as plain text.
+### **Marginal Cost (MC)**  
+MC = Variable Cost per unit  
+MC = UVC  
 
-📂 File Structure
-bash
+As production increases, the fixed cost is spread across more units, causing AC to get closer and closer to MC.  
+This script simulates that convergence step by step.
+
+---
+
+## 📂 File Structure
+
+ac_mc_cost_convergence.py # Main simulation script
+README.md # Documentation
+LICENSE # MIT License
+.gitignore # Python ignore rules
+
+yaml
 Copiar código
-ac_mc_cost_convergence.py   # Main simulation script
-README.md                   # This document
-LICENSE                     # MIT License
-.gitignore                  # Python ignore rules
-▶️ How to Run
-Install Python 3.8+.
 
-From the repository root:
+---
 
-bash
-Copiar código
+## ▶️ How to Run the Script
+
+1. Install **Python 3.8+**  
+2. Run the script:
+
+```bash
 python ac_mc_cost_convergence.py
-Enter inputs when prompted:
+Enter the requested inputs:
 
 Total Fixed Cost (FC)
 
 Unit Variable Cost (UVC)
 
-The script iterates up to 25 quantities and prints AC and MC for each Q; it stops early if AC ≈ MC (difference < 0.01).
+The program will compute AC for increasing values of Q and detect when AC becomes very close to MC (difference < 0.01).
 
-📊 Example Output
+📊 Sample Output
 markdown
 Copiar código
 Q   |     AC      |     MC
@@ -61,27 +65,25 @@ Q   |     AC      |     MC
   4 |  21.2500    |  10.0000
   ...
 🔹 AC has approached MC (difference < 0.01).
-🧠 Economic Interpretation
-Initial units bear a large share of fixed cost; thus AC > MC.
+🧠 Interpretation
+AC starts higher because fixed costs heavily impact low production levels.
 
-As Q grows, AC declines toward MC because fixed cost is diluted.
+As Q rises, AC declines and gets closer to MC.
 
-Under constant UVC, AC converges to MC — a fundamental result in microeconomics.
+Under constant marginal cost technologies, AC always converges to MC in the long run — a fundamental microeconomic insight.
 
-🛠 Technical Notes & Extensions
-Tech: Python 3 (no external dependencies).
-Possible enhancements:
+🛠 Technologies Used
+Python 3
 
-Vectorized scenarios with numpy and CSV outputs.
+Fundamental microeconomic cost modeling
 
-AC vs MC plot using matplotlib.
-
-Parameterized CLI or config-file mode for batch runs.
+Iterative computation and console-based reporting
 
 📜 License
-This repository is released under the MIT License. See LICENSE for details.
+Released under the MIT License.
+You may use, modify, and distribute the code with attribution.
 
 👤 Author
 Kevin Adolfo Lorenzo Condor
-Economist in training — Applied Microeconomics & Python
+Economist in training | Applied Microeconomics & Python
 GitHub: KLorenzoEconomics
